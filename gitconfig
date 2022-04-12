@@ -1,0 +1,11 @@
+[user]
+	email = vyacheslav@izzqz.me
+	name = Vyacheslav
+	signingkey = 83F97758783637319C7F9900630D86268AFE5D31
+[commit]
+	gpgsign = false
+[alias]
+	dog = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+[core]
+	editor = micro
+	autocrlf = input

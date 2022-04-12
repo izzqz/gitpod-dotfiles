@@ -1,0 +1,55 @@
+# See https://github.com/anishathalye/dotbot#configuration
+- clean: ['~']
+
+# Shell environment
+- defaults:
+    link:
+        force: true
+        relink: true
+        mode: 744
+                
+- link:
+    ~/.zimrc: zimrc
+    ~/.zshenv: zshenv
+    ~/.zlogin: zlogin
+    ~/.zshrc: zshrc
+
+- shell:
+    - [zsh ~/.zim/zimfw.zsh install, Install zimfw modules]
+    - [zsh ~/.zim/zimfw.zsh upgrade, Upgrade zimfw]
+    - [zsh ~/.zim/zimfw.zsh update, Update zimfw modules]
+    - [zsh ~/.zim/zimfw.zsh compile, Compile zimfw files]
+
+# Configurations
+- defaults:
+    link:
+        force: true
+        mode: 744
+- link:
+    ~/.gitconfig:
+        path: gitconfig
+    ~/.npmrc: npmrc
+
+# Sensitive files
+- defaults:
+    link:
+        glob: true
+        relink: true
+        mode: 700
+
+- link:
+    ~/.gnupg:
+        force: false
+        path: gnupg
+    ~/.ssh:
+        force: true
+        path: ssh
+        
+- shell:
+    -
+        command: find ~/.gnupg -type f -exec chmod 600 {} \;
+        description: Correct access rights for .gnupg files
+                
+    -
+        command: find ~/.gnupg -type d -exec chmod 700 {} \;
+        description: Correct access rights for .gnupg subfolders
