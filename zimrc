@@ -28,12 +28,6 @@ zmodule pure
 
 # Additional completion definitions for Zsh.
 zmodule zsh-users/zsh-completions
-# Enables and configures smart and extensive tab completion.
-# completion must be sourced after zsh-users/zsh-completions
-zmodule completion
-# Fish-like history search (up arrow) for Zsh.
-# zsh-users/zsh-history-substring-search must be sourced after zsh-users/zsh-syntax-highlighting
-zmodule zsh-users/zsh-history-substring-search
 # NPM
 zmodule lukechilds/zsh-better-npm-completion
 # }}} End configuration added by Zim install
