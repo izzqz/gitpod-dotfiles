@@ -126,5 +126,9 @@ bindkey -M vicmd 'j' history-substring-search-down
 ## completion
 autoload -U compinit
 compinit -i
-## npm completion
-source <(npm completion)
+
+alias i="sudo apt install";
+alias restart="exec zsh -l";
+alias https="http --default-scheme=https"
+
+export PURE_PROMPT_SYMBOL='|';
