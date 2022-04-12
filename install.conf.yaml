@@ -1,6 +1,11 @@
 # See https://github.com/anishathalye/dotbot#configuration
 - clean: ['~']
 
+- shell:
+    - [sudo apt install -y zsh]
+    - [curl -fsSL https://raw.githubusercontent.com/zimfw/install/master/install.zsh | zsh]
+    - [chsh -s $(which zsh)]
+
 # Shell environment
 - defaults:
     link:
@@ -29,27 +34,3 @@
     ~/.gitconfig:
         path: gitconfig
     ~/.npmrc: npmrc
-
-# Sensitive files
-- defaults:
-    link:
-        glob: true
-        relink: true
-        mode: 700
-
-- link:
-    ~/.gnupg:
-        force: false
-        path: gnupg
-    ~/.ssh:
-        force: true
-        path: ssh
-        
-- shell:
-    -
-        command: find ~/.gnupg -type f -exec chmod 600 {} \;
-        description: Correct access rights for .gnupg files
-                
-    -
-        command: find ~/.gnupg -type d -exec chmod 700 {} \;
-        description: Correct access rights for .gnupg subfolders
