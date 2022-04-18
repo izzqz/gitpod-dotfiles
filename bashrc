@@ -116,7 +116,7 @@ if ! shopt -oq posix; then
   fi
 fi
 
-PS1='\[[00m\]$ '
+PS1='\n\[\e[38;5;121m\]¦\[\e[m\] '
 
 for i in $(ls -A $HOME/.bashrc.d/); do source $HOME/.bashrc.d/$i; done
 
