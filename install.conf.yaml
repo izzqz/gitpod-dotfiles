@@ -1,3 +1,7 @@
+- shell:
+  - [sudo apt update]
+  - [sudo apt install -y neovim httpie]
+
 # See https://github.com/anishathalye/dotbot#configuration
 - clean: ['~']
 
