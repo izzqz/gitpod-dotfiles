@@ -118,4 +118,5 @@ for i in $(ls -A $HOME/.bashrc.d/); do source $HOME/.bashrc.d/$i; done
 
 . "$HOME/.cargo/env"
 
-alias https='http --default-scheme=https'
+alias https='xh --default-scheme=https'
+alias http='xh'
