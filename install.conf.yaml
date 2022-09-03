@@ -1,12 +1,19 @@
 - shell:
-  - curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | sudo dd of=/usr/share/keyrings/githubcli-archive-keyring.gpg
-  - sudo chmod go+r /usr/share/keyrings/githubcli-archive-keyring.gpg
-  - echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | sudo tee /etc/apt/sources.list.d/github-cli.list > /dev/null
+    -
+      command: mkdir -p tmp/deps
+      description: Create tmp folder
+      quiet: true
 
 - shell:
-  - [sudo add-apt-repository ppa:neovim-ppa/stable]
-  - [sudo apt update]
-  - [sudo apt install -y neovim httpie gh]
+  - wget -P tmp/deps https://github.com/neovim/neovim/releases/download/v0.7.2/nvim-linux64.deb
+  - wget -P tmp/deps https://github.com/cli/cli/releases/download/v2.14.7/gh_2.14.7_linux_amd64.deb
+  - wget -P tmp/deps https://github.com/ducaale/xh/releases/download/v0.16.1/xh_0.16.1_amd64.deb
+
+- shell:
+    -
+      command: cd tmp/deps && sudo dpkg -i *.deb
+      description: Install all deb packages
+      quiet: true
 
 # See https://github.com/anishathalye/dotbot#configuration
 - clean: ['~']
